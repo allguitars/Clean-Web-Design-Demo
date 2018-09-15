@@ -1,0 +1,670 @@
+/* 
+color orange: #e67e22
+
+*/
+
+
+/* --------------------------------------------------------------------------------------------- */
+/* BASIC SETUP */
+/* --------------------------------------------------------------------------------------------- */
+
+/* Step 1: Always the very first thing to set up for a new project */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Step 2: the second basic thing to set up  */
+html {
+    background-color: #fff;
+    color: #555;
+    /* If the prior fonts are missing, the later ones will be used in sequence */
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+}
+
+.clearfix {zoom: 1}
+
+/* This class will clear the float AFTER and element. */
+.clearfix:after {
+    content: ".";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+/* REUSABLE COMPONENTS */
+/* --------------------------------------------------------------------------------------------- */
+
+/* Step 3: all the content will be placed in the rows, so have to specify this very basic information 
+fror all rows */
+.row {
+    max-width: 1140px;          /* this is the only absolute value for the width in this website */
+    
+    /* To center the row, there are two ways */
+    /* 1. set the left and right margin to 'auto' */
+    /* top right bottom left */
+    /* margin: 0 auto 0 auto; */
+    
+    /* 2. even more simple way.. it has the same effect. */
+    /* if you specify only two values, the first one will apply to top and bottom, the second value
+    will apply to left and right*/
+    margin: 0 auto;
+    
+}
+
+section {
+    /* the reason why we use padding instead of margin is that we want to put some background
+    inside the section later on. So we prefer the space shoule be inside the section. */
+    padding: 80px 0;
+}
+
+.box {
+    padding: 1%;
+}
+
+
+/* ---------- HEADINGS ---------- */
+
+/*To overwrite the normalize.css setting. */
+h1,
+h2,
+h3 {
+    font-weight: 300;
+    /* All transform to uppercase */
+    text-transform: uppercase;
+}
+
+h1 {
+    margin: 0;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 240%;
+    word-spacing: 4px;
+    /* space between characters */
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 180%;
+    margin-bottom: 30px;
+    word-spacing: 2px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+h3 {
+    font-size: 110;
+    margin-bottom: 15px;
+}
+
+
+/* adding content with just css - using pseudo-class */
+h2:after {
+    display: block;         /* It will be a block element */
+    height: 2px;
+    background-color: #e67e22;
+    
+    /* Whenever you use pseudo-class, you should put the content. Here we just specify a space. */
+    content: " ";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+/* ---------- PARAGRAPHS ---------- */
+.long-copy {
+    /* For better typography, the line height should be within 120% - 145%. */
+    line-height: 145%;
+    
+    /* The paragraph also should not be too long. */
+    width: 70%;
+    
+    /* Here is another way to center the graph. We already set the width to 70%. */
+    /* The margin-right will 100-70-15 = 15 as well. */
+    margin-left: 15%;
+}
+
+.box p {
+    font-size: 90%;
+    line-height: 145%;
+}
+
+/* ---------- ICONS ---------- */
+.icon-big {
+    font-size: 350%;
+    /* define it as a block so that it forces a line break. */
+    display: block;
+    color: #e67e22;    /* It's a icon font, so you can set its font-size and color. */
+    margin-bottom: 10px;
+}
+
+.icon-small {
+    /* make it an inline-block so that we can set the width and text-align */
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    color: #e67e22;
+    font-size: 120%;
+    margin-right: 10px;
+    
+    /* secrets to align the text and icons */
+    line-height: 120%;
+    vertical-align: middle;
+    margin-top: -4px;
+}
+
+/* ---------- LINKS ---------- */
+/* This is for generic links */
+
+a:link,
+a:visited {
+    color: #e67e22;
+    text-decoration: none;
+    padding: 1px;
+    border-bottom: 1px solid #e67e22;
+    transition: border-bottom 0.2s, color 0.2s;
+}
+
+a:hover,
+a:active {
+    color: #555;
+    border-bottom: 1px solid transparent;
+}
+
+
+
+/* ---------- BUTTONS ---------- */
+
+/* There are two kinds of html elements: block elements and inline elements */
+/* There is also a mix between those two kinds, which is called the inline block. */
+/* The inline block is just the inline element but can have padding and margin. */
+/* It does not force a line break, but you can attribute it some padding and margin. */
+/* <a> is an inline element, but we can make it an inline block by setting "display" in CSS. */
+.btn:link,
+.btn:visited,
+input[type=submit] {
+    display: inline-block;
+    
+    /* After setting the inline-block, we can give it some padding. */
+    padding: 10px 30px;        /* 10 for the top and bottom; 30 for the left and right. */
+    font-weight: 300;
+    
+    /* Get rid of the underline */
+    text-decoration: none;
+
+    border-radius: 200px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    
+}    /* This is the "common" button style. */
+
+.btn:hover,
+.btn:active,
+input[type=submit]:hover,
+input[type=submit]:active {
+    background-color: #cf6d17;
+}
+
+/* style for specific button */
+
+.btn-full:link,
+.btn-full:visited,
+input[type=submit] {
+    /* We can use https://flatuicolors.com */
+    background-color: #e67e22;
+    border: 1px solid #e67e22;
+    color: #fff;
+    margin-right: 15px;
+}
+
+.btn-full:hover,
+.btn-full:active,
+input[type=submit] {
+    border: 1px solid #cf6d17;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited {
+    border: 1px solid #e67e22;
+    color: #e67e22;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+    border: 1px solid #cf6d17;
+    color: #fff;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+/* HEADER */
+/* --------------------------------------------------------------------------------------------- */
+
+header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/hero.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;    /* meaning 100% of the viewport */
+    background-attachment: fixed;
+}
+
+.hero-text-box {
+    position: absolute;
+    width: 1140px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.logo {
+    height: 100px;
+    width: auto;
+    float: left;
+    margin-top: 20px;
+}
+
+.main-nav {
+    float: right;
+    /* Get rid of the bullet points */
+    list-style: none;
+    margin-top: 55px;
+}
+
+.main-nav li{
+    /* Set inline-block so every list can be side by side */
+    display: inline-block;
+    margin-left: 40px;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+    padding: 8px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+    border-bottom: 2px solid #e67e22;
+}
+
+
+/* --------------------------------------------------------------------------------------------- */
+/* FEATURES */
+/* --------------------------------------------------------------------------------------------- */
+
+.section-features .long-copy {
+    margin-bottom: 30px;
+}
+
+
+/* --------------------------------------------------------------------------------------------- */
+/* MEALS */
+/* --------------------------------------------------------------------------------------------- */
+
+.section-meals {
+    padding: 0;
+}
+
+.meals-showcase {
+    /* Remove the bullet points */
+    list-style: none;
+    
+    /* Let the section occupy the 100% of the browser width. */
+    width: 100%;
+}
+
+.meals-showcase li {
+    display: block;    
+    /* Instead of showing one after one, we want them to be side by side. */
+    float: left;
+    /* Four elements for each row, and they will occupy 100% in total. */
+    width: 25%;
+}
+
+.meal-photo {
+    /* Let it be the same width as its parent, which is <li> */
+    width: 100%;
+    margin: 0;
+    /* Set the overflow to be invisible, and we just see that part of the image which 
+    is still inside the container. */
+    overflow: hidden;
+    background-color: #000;
+}
+
+.meal-photo img {
+    opacity: 0.7;
+    /* Set the image as wide as its container, which is .meal-photo */
+    width: 100%;
+    height: auto;
+    transform: scale(1.15);
+    /* Do transition for the transform which happen when you hover over the image. */
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.meal-photo img:hover {
+    opacity: 1;
+    /* The reason we set 1.04 is that we want to avoid the white space at the bottom of the photo. */
+    transform: scale(1.04);
+}
+
+
+/* --------------------------------------------------------------------------------------------- */
+/* HOW IT WORKS */
+/* --------------------------------------------------------------------------------------------- */
+
+.section-steps {
+    background-color: #f4f4f4;
+}
+
+.steps-box {
+    margin-top: 30px;
+}
+
+/* Now we use a very useful selector to select a specific child element. */
+.steps-box:first-child {
+    /* text-align property actually works for different all inline or inline-block elements. */
+    text-align: right;
+    /* For responsive web design, we want to the layout to be fliud. */
+    /* So here, we use the percentage again, instead of usgin rigid pixels. */
+    padding-right: 3%;
+    margin-top: 30px;
+}
+
+.steps-box:last-child {
+    padding-left: 3%;
+    margin-top: 70px;
+}
+
+.app-screen {
+    width: 40%;
+}
+
+.works-step {
+    margin-bottom: 50px;
+}
+
+/* Another selector similar to last-child. */
+.works-step:last-of-type {
+    margin-bottom: 80px;
+}
+
+.works-step div {
+    color: #e67e22;
+    border: 2px solid #e67e22;
+    
+    /* To ensure that the numbers will not force line breaks, so the numbers and the text can be side by side. */
+    display: inline-block;
+
+    border-radius: 50%;
+    height: 55px;
+    width: 55px;
+    text-align: center;
+    padding: 5px;
+    float: left;
+    font-size: 150%;
+    margin-right: 25px;
+}
+
+.btn-app:link,
+.btn-app:visited {
+    border: 0;
+}
+
+.btn-app img {
+    height: 50px;
+    width: auto;
+    margin-right: 10px;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+/* CITIES */
+/* --------------------------------------------------------------------------------------------- */
+
+.box img {
+    width: 100%;    /* set image as wide as the parent, which is the box. */
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.city-feature {
+    margin-bottom: 5px;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+/* TESTIMONIALS */
+/* --------------------------------------------------------------------------------------------- */
+
+.section-testimoinals {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(img/back-customers.jpg);
+    
+    /* We want the image to fill the whole width of the bowser. */
+    /* If we don't set this, the image will be extended according to the original size. */
+    background-size: cover;
+    color: #fff;
+    background-attachment: fixed;
+}
+
+blockquote {
+    padding: 2%;
+    font-style: italic;
+    line-height: 145%;
+    
+    /* The child has been set to absolute. */
+    position: relative;
+    margin-top: 40px;
+}
+
+blockquote:before {
+    content: "\201C";
+    font-size: 400%;
+    display: block;      /* To force a link break. */
+    
+    /* When we set the position to absolute, we have to make sure we set its parent to relative. */
+    position: absolute;
+    top: -5px;
+    left: -5px;
+}
+
+cite {
+    font-size: 90%;
+    margin-top: 25px;
+    display: block;
+}
+
+cite img {
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+/* SIGN UP */
+/* --------------------------------------------------------------------------------------------- */
+
+.section-plans {
+    background-color: #f4f4f4;
+}
+
+.plan-box {
+    background-color: #fff;
+    border-radius: 5px;
+    
+    /* The following two settings makes the plan-box centered. */
+    width: 90%;
+    margin-left: 5%;
+    
+    /* x-axis offset, y-axis offset, blur, color */
+    box-shadow: 0 2px 2px #efefef;
+}
+
+.plan-box div {
+    padding: 15px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.plan-box div:first-child {
+    background-color: #fcfcfc;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.plan-box div:last-child {
+    text-align: center;
+    border: 0;
+}
+
+.plan-price {
+    font-size: 300%;
+    margin-bottom: 10px;
+    
+    /* When we make the font size really big, we want to reduce the font weight. */
+    font-weight: 100;
+    color: #e67e22;
+}
+
+.plan-price span {
+    /* This size percentage will be based on the parent font size, which is already 300%. */
+    /* So we have to set a relatively smaller size here. */
+    font-size: 30%;
+    font-weight: 300;
+}
+
+.plan-price-meal {
+    font-size: 80%;
+}
+
+.plan-box ul {
+    list-style: none;
+}
+
+.plan-box ul li {
+    padding: 5px 0;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+/* FORM */
+/* --------------------------------------------------------------------------------------------- */
+
+.contact-form {
+    width: 60%;
+    margin: 0 auto;
+    
+}
+
+input[type=text],
+input[type=email],
+select,
+textarea {
+    width: 100%;
+    /* Set padding to make the area bigger. */
+    padding: 7px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+textarea {
+    height: 100px;
+}
+
+input[type=checkbox] {
+    margin: 10px 5px 10px 0;
+}
+
+/* focus is another pseudo class we can use. */
+*:focus {outline: none;}
+
+/* --------------------------------------------------------------------------------------------- */
+/* FOOTER */
+/* --------------------------------------------------------------------------------------------- */
+
+footer {
+    background-color: #333;
+    padding: 50px;
+    font-size: 80%;
+}
+
+.footer-nav {
+    list-style: none;
+    /* Let it float to the left side if its container. */
+    float: left;
+}
+
+.social-links {
+    list-style: none;
+    /* Let float all the way to the right side. */
+    float: right;
+}
+
+/* Set the list to inline-block, so that they can be side by side. (no line break) */
+.footer-nav li,
+.social-links li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.footer-nav li:last-child,
+.social-links li:last-child {
+    margin-right: 0;
+}
+
+.footer-nav li a:link,
+.footer-nav li a:visited,
+.social-links li a:link,
+.social-links li a:visited {
+    text-decoration: none;
+    border: 0;
+    color: #888;
+    transition: color 0.2s;
+}
+
+.footer-nav li a:hover,
+.footer-nav li a:active {
+    color: #ddd;
+}
+
+.social-links li a:link,
+.social-links li a:visited {
+    font-size: 160%;
+}
+
+.ion-social-facebook,
+.ion-social-twitter,
+.ion-social-googleplus,
+.ion-social-instagram {
+    transition: color 0.2s;
+}
+
+.ion-social-facebook:hover {
+    color: #3b5998;
+}
+
+.ion-social-twitter:hover {
+    color: #00aced;
+}
+
+.ion-social-googleplus:hover {
+    color: #dd4b39;
+}
+
+.ion-social-instagram:hover {
+    color: #517fa4;
+}
+
+footer p {
+    color: #888;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+
